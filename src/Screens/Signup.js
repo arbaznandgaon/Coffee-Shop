@@ -1,57 +1,55 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import LanguageIcon from "@mui/icons-material/Language";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import CheckBoxTwoToneIcon from "@mui/icons-material/CheckBoxTwoTone";
 import { Alert } from "@mui/material";
-import Mainpage from './Mainpage';
+import Login from "./Login";
 
-function Login() {
+function Signup() {
 
-const[namelog,setNamelog]= useState("")
-const[passwordlog,setPasswordlog]= useState("")
+const [name,setName] = useState("")
+const [email,setEmail] = useState("")
+const [password,setPassword] = useState("")
 const [flag,setFlag] = useState(false)
-const [home,setHome] = useState(true)
-const [log,setLog] = useState(true)
+const [login,setLogin] = useState(true)
 
 
-function handleLogin(e){
+
+// console.log(name)
+
+
+function handleSubmit(e){
 e.preventDefault();
-let mail= localStorage.getItem("Name").replace(/"/g,"");
-let pass= localStorage.getItem("Password").replace(/"/g,"");
 
-if(!namelog || !passwordlog){
-    setFlag(true)
-    console.log("Empty")
-}else if(passwordlog !== pass || namelog !== mail){
-    setFlag(true)
-}else{
-    setHome(!home)
-    setFlag(false)
-}
+if(!name || !email || !password ){
+  setFlag(true);
+} else{
+  setFlag(false)
+  localStorage.setItem("Name", JSON.stringify(name))
+  localStorage.setItem("Email", JSON.stringify(email))
+  localStorage.setItem("Password", JSON.stringify(password))
 
+  console.log("saved in local storage")
+  setLogin(!login)
 
 }
 
-function handlelog(){
-    setLog(false)
-
 }
 
-// function handleClick(){
+function handleClick(){
 
-//     setLogin(!login)
-//     }
+setLogin(!login)
+}
 
 
   return (
-    <div className='App'>
-    
+  <div>
 
-{home ? (
+{login? (
 
 
-    <form onSubmit={handleLogin}>
+      <form onSubmit={handleSubmit}>
       <div>
         <div className="b">
           <div
@@ -71,26 +69,36 @@ function handlelog(){
                 </div>
               </div>
               <div className="bg-black/80 h-auto mt-8 w-[28rem] mx-auto px-12 py-12 space-y-8 rounded-lg">
-                <p className="text-white font-bold text-2xl">{"LogIn"}</p>
+                <p className="text-white font-bold text-2xl">{"Sign Up"}</p>
                 <input
+                type="string"
                   placeholder="User Name "
-                  type='string'
                   className="text-slate-400 font-semibold bg-zinc-700 px-4 py-2 rounded-md w-[22rem]"
-                  onChange={(event)=> setNamelog(event.target.value)}
+                  onChange={(event)=> setName(event.target.value)}
                 />
-                
+                <input
+                type="email"
+                  placeholder="Email"
+                  className="text-slate-400 font-semibold bg-zinc-700 px-4 py-2 rounded-md w-[22rem]"
+                  onChange={(event)=> setEmail(event.target.value)}
+                />
 
                 <input
                   placeholder="Password"
-                  type='password'
+                  type="password"
                   className="text-slate-400 font-semibold bg-zinc-700 px-4 py-2 rounded-md w-[22rem]"
-                  onChange={(event)=> setPasswordlog(event.target.value)}
+                  onChange={(event)=> setPassword(event.target.value)}
                 />
-               
+                <input
+                  placeholder="Confirm Password"
+                  type="confirm password"
+                  className="text-slate-400 font-semibold bg-zinc-700 px-4 py-2 rounded-md w-[22rem]"
+                />
 
                 <div className="flex flex-col space-y-2 text-gray-600">
-                  <button className="text-white bg-red-600 px-4 py-3 rounded-md w-[22rem] font-bold">
-                    LogIn
+                  <button className="text-white bg-red-600 px-4 py-3 rounded-md w-[22rem] font-bold"
+                   >
+                    Sign Up
                   </button>
                   <div className="flex justify-between text-xs text-slate-300">
                     <p>
@@ -102,9 +110,9 @@ function handlelog(){
 
                 <div className="text-slate-500 space-y-2 pt- font-semibold">
                   <p >
-                    Don't have an Account?
+                    Already have an Account?
                     <br />
-                    <button onClick={handlelog} className="text-blue-800">Sign Up</button>
+                    <button onClick={handleClick} className="text-blue-800">Login</button>
                   </p>
                 </div>
               </div>
@@ -115,20 +123,14 @@ function handlelog(){
       {
         flag && (
           <Alert color="primary" variant="danger">
-            Please fill Correct Information
+            Please fill every field
           </Alert>
         )
       }
-      console.log(name)
     </form>
-
-    ) : (<Mainpage/> )}
-    
-    
-    
-    
-     </div>
-  )
+    ) : ( <Login/>)}
+  </div>
+  );
 }
 
-export default Login
+export default Signup;
