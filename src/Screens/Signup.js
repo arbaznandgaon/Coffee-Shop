@@ -46,18 +46,18 @@ setLogin(!login)
   return (
   <div>
 
-{login? (
+
 
 
       <form onSubmit={handleSubmit}>
-      <div>
+      
         <div className="b">
           <div
             className="bg-[url('coffee\src\Assets\Coffee 6.webp')] 
     h-screen w-[87rem] ml "
           >
             <div className="">
-              <div className="flex justify-between ite w-screen px-6 h-16 pt-4 bg-gray-400 ">
+              {/* <div className="flex justify-between ite w-screen px-6 h-16 pt-4 bg-gray-400 ">
                 <img
                   className=" w-12 h-12 pb-2 "
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYkS-nAUcNdi8IR99_8qYDKZEWFrPlvCBA3xjLldpapu2RnYY&s"
@@ -67,8 +67,8 @@ setLogin(!login)
                     <LanguageIcon /> English <ArrowDropDownIcon />
                   </button>
                 </div>
-              </div>
-              <div className="bg-black/80 h-auto mt-8 w-[28rem] mx-auto px-12 py-12 space-y-8 rounded-lg">
+              </div> */}
+              <div className="bg-black/80 h-auto mt-8 w-[28rem] mx-40 px-12 py-12 space-y-8 rounded-lg">
                 <p className="text-white font-bold text-2xl">{"Sign Up"}</p>
                 <input
                 type="string"
@@ -89,14 +89,10 @@ setLogin(!login)
                   className="text-slate-400 font-semibold bg-zinc-700 px-4 py-2 rounded-md w-[22rem]"
                   onChange={(event)=> setPassword(event.target.value)}
                 />
-                <input
-                  placeholder="Confirm Password"
-                  type="confirm password"
-                  className="text-slate-400 font-semibold bg-zinc-700 px-4 py-2 rounded-md w-[22rem]"
-                />
+                
 
                 <div className="flex flex-col space-y-2 text-gray-600">
-                  <button className="text-white bg-red-600 px-4 py-3 rounded-md w-[22rem] font-bold"
+                  <button className="text-white bg-red-500  hover:bg-red-700 px-4 py-3 rounded-md w-[22rem] font-bold"
                    >
                     Sign Up
                   </button>
@@ -119,7 +115,7 @@ setLogin(!login)
             </div>
           </div>
         </div>
-      </div>
+      
       {
         flag && (
           <Alert color="primary" variant="danger">
@@ -128,7 +124,7 @@ setLogin(!login)
         )
       }
     </form>
-    ) : ( <Login/>)}
+    
   </div>
   );
 }

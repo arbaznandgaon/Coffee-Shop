@@ -15,6 +15,8 @@ const [home,setHome] = useState(true)
 const [log,setLog] = useState(true)
 
 
+
+
 function handleLogin(e){
 e.preventDefault();
 let mail= localStorage.getItem("Name").replace(/"/g,"");
@@ -59,7 +61,7 @@ function handlelog(){
     h-screen w-[87rem] ml "
           >
             <div className="">
-              <div className="flex justify-between ite w-screen px-6 h-16 pt-4 bg-gray-400 ">
+              {/* <div className="flex justify-between ite w-screen px-6 h-16 pt-4 bg-gray-400 ">
                 <img
                   className=" w-12 h-12 pb-2 "
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYkS-nAUcNdi8IR99_8qYDKZEWFrPlvCBA3xjLldpapu2RnYY&s"
@@ -69,8 +71,8 @@ function handlelog(){
                     <LanguageIcon /> English <ArrowDropDownIcon />
                   </button>
                 </div>
-              </div>
-              <div className="bg-black/80 h-auto mt-8 w-[28rem] mx-auto px-12 py-12 space-y-8 rounded-lg">
+              </div> */}
+              <div className="bg-black/80 h-auto mt-8 w-[28rem] mx-40 px-12 py-12 space-y-8 rounded-lg">
                 <p className="text-white font-bold text-2xl">{"LogIn"}</p>
                 <input
                   placeholder="User Name "
@@ -89,7 +91,7 @@ function handlelog(){
                
 
                 <div className="flex flex-col space-y-2 text-gray-600">
-                  <button className="text-white bg-red-600 px-4 py-3 rounded-md w-[22rem] font-bold">
+                  <button   className="text-white bg-red-500  hover:bg-red-700 px-4 py-3 rounded-md w-[22rem] font-bold">
                     LogIn
                   </button>
                   <div className="flex justify-between text-xs text-slate-300">
@@ -104,7 +106,7 @@ function handlelog(){
                   <p >
                     Don't have an Account?
                     <br />
-                    <button onClick={handlelog} className="text-blue-800">Sign Up</button>
+                    <button  className="text-blue-800">Sign Up</button>
                   </p>
                 </div>
               </div>
@@ -119,7 +121,7 @@ function handlelog(){
           </Alert>
         )
       }
-      console.log(name)
+      
     </form>
 
     ) : (<Mainpage/> )}
