@@ -39,12 +39,10 @@ function ProductView() {
   };
 
   const handleUpdate = (product) => {
-    // Implement update logic here and replace the following line
     console.log("Update:", product);
   };
 
   const handleDelete = (productId) => {
-    // Implement delete logic here and replace the following line
     console.log("Delete:", productId);
   };
 
@@ -55,7 +53,7 @@ function ProductView() {
           <div className="flex w-screen">
             <div className="p-2">
               <button
-                className=" bg-gray-200 text-gray-800 py-2 px-4 rounded-md hover:bg-gray-300 hover:text-gray-900"
+                className=" bg-blue-200 text-gray-800 py-2 px-4 rounded-md hover:bg-blue-300 hover:text-gray-900"
                 onClick={handlePrev}
               >
                 Prev

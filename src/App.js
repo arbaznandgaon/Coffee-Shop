@@ -6,13 +6,7 @@ function App() {
   return (
     <div>
       <HomePage />
-      {/* <div className="flex flex-col items-center justify-center min-h-screen"> */}
-      {/* <h1 className="text-2xl font-bold mb-4">Image Carousel</h1> */}
-      {/* <Item1 /> */}
-      {/* </div> */}
-      {/* <Signup/> */}
-      {/* <Login/> */}
-</div>
+    </div>
   );
 }
 
